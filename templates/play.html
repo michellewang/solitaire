@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Play
+{% endblock %}
+
+{% block main %}
+    <div class="full">
+        <div class="board">
+            <div>
+                <p>
+                    <a id="new_game" href="{{ url_for('play', action="new") }}">
+                        <button class="btn btn-default btn-button" type="submit">New Game</button>
+                    </a>
+                </p>
+            </div>
+            <div class="top">
+                <div class="topcolumn">
+                    <img id="draw" class="card clickable" src= {{ url_for('static', filename = ('./cards/' + stack["left"] + '.bmp')) }}>
+                </div>
+                <div class="topcolumn">
+                    {% if stack["right"][0]["name"] == "blank" %}
+                        {% set visible = "no" %}
+                    {% else %}
+                        {% set visible = "" %}
+                    {% endif %}
+                    <img id="{{ visible }}stack" class="card clickable" src= {{ url_for('static', filename = ('./cards/' + stack["right"][0]["name"] + '.bmp')) }}>
+                </div>
+                <div class="empty topcolumn"></div>
+                {% for acepile in acepiles %}
+                    {% set id = "acepile" + loop.index0 | string %}
+                    <div class="topcolumn">
+                        <img id={{ id }} class="card" src= {{ url_for('static', filename = ('./cards/' + acepile["name"] + '.bmp')) }}>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="bottom">
+                {% for column in columns %}
+                    {% set column_loop = loop %}
+                    <div class="column">
+                        {% for card in column %}
+                            {% if card["name"] == "back" %}
+                                {% set visible = "h" %}
+                                {% set clickable = "" %}
+                            {% else %}
+                                {% set visible = "" %}
+                                {% set clickable = "clickable" %}
+                            {% endif %}
+                            <img id="{{ visible }}{{ column_loop.index0 }}{{ loop.index0 }}" class="card columncard {{ clickable }}" style="z-index={{ loop.index }}" src={{ url_for('static', filename = ('./cards/' + card["name"] + '.bmp')) }}>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,131 @@
+.container
+{
+    /* center contents */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* colors for navbar */
+.navbar-default .navbar-brand .blue
+{
+    color: #537fbe;
+}
+.navbar-default .navbar-brand .red
+{
+    color: #ea433b;
+}
+.navbar-default .navbar-brand .yellow
+{
+    color: #f5b82e;
+}
+.navbar-default .navbar-brand .green
+{
+    color: #2e944b;
+}
+
+main .form-control
+{
+    /* center form controls */
+    display: inline-block;
+
+    /* override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+main img
+{
+    /* constrain images on small screens */
+    max-width: 100%;
+}
+
+main td
+{
+    /* left-align tables' cells */
+    text-align: left;
+}
+
+.full
+{
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.board
+{
+    width: 65%;
+    height: 100vh;
+    margin: 0 auto;
+    position: relative;
+}
+
+.card
+{
+    width: 50px;
+    margin: auto;
+    position: relative;
+}
+
+.top
+{
+    height: 80px;
+    position: relative;
+}
+
+.bottom
+{
+    overflow:auto;
+    height: inherit;
+    position: relative;
+}
+
+.column
+{
+    /* center columns */
+    display: inline-block;
+    
+    width: 60px;
+    margin: auto;
+    
+    /* make columns start at the top of parent div */
+    vertical-align: top;
+}
+
+.topcolumn
+{
+    /* center column */
+    display: inline-block;
+    
+    width: 60px;
+    
+    vertical-align: top;
+}
+
+.empty
+{
+    /* space between stacks and acepiles */
+    padding: 30px;
+    height: 68px;
+}
+
+.selected
+{
+    border: solid 1px red;
+}
+
+.columncard
+{
+    /* make images overlap each other */
+    margin-bottom: -50px;
+}
+
+.clickable
+{
+    cursor: pointer;
+}
+
+.btn-bottom
+{
+    vertical-align: bottom;
+}

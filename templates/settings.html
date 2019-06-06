@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Settings
+{% endblock %}
+
+{% block main %}
+    <form action="{{ url_for('settings') }}" method="post">
+        <p>Number of cards per draw:</p>
+        <p>
+        {% if n == 1 %}
+            {% set checked1 = "checked" %}
+        {% else %}
+            {% set checked3 = "checked" %}
+        {% endif %}
+        <label class="radio-inline"><input type="radio" name="cards_per_draw" value="1" {{ checked1 }}>1</label>
+        <label class="radio-inline"><input type="radio" name="cards_per_draw" value="3" {{ checked3 }}>3</label>
+        </p>
+        <button class="btn btn-default" type="submit">Change</button>
+    </form>
+{% endblock %}

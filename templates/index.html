@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <div class="full">
+            <h1>Welcome to Solitaire!</h1>
+            {% if wins == 1 %}
+                {% set games = "game" %}
+            {% else %}
+                {% set games = "games" %}
+            {% endif %}
+            <p>
+                You have won <strong>{{ wins }}</strong> {{ games }}.
+            </p>
+            <p>
+                <strong>Goal of the game:</strong>
+                <br>
+                Fill up the Foundations with cards from the same suit, ranked from Ace to King.
+            </p>
+            <p>
+                <strong>How to Play:</strong>
+                <br>
+                Click on a card to select it. To unselect it, click on it again. Click on another card to move the selected card.
+            </p>
+            <p>
+                <strong>Allowed moves:</strong>
+                <br>
+                Flip 1 or 3 cards from the Stock to the Waste (you can change this in Settings).
+                <br>
+                Move one card from the Waste to a Foundation or to the Tableau.
+                <br>
+                Move card(s) from one Tableau pile to another.
+                <br>
+                Move card from the Tableau to a Foundation.
+            </p>
+            <p>
+                <strong>What's What:</strong>
+                <br>
+                The Stock: The pile of facedown cards in the upper left corner.
+                <br>
+                The Waste: The faceup pile next to the Stock in the upper left corner.
+                <br>
+                The Foundations: The four piles in the upper right corner.
+                <br>
+                The Tableau: The seven piles that make up the main table.
+            </p>
+            <a href="{{ url_for('play', action='new') }}">
+                <button class="btn btn-default" type="submit">New Game</button>
+            </a>
+            <br>
+            <br>
+            {% if old_game %}
+            <a href="{{ url_for('play') }}">
+                <button class="btn btn-default" type="submit">Continue Game</button>
+            </a>
+            {% endif %}
+    </div>
+{% endblock %}
